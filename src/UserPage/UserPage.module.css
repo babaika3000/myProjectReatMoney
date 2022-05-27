@@ -1,11 +1,24 @@
-import React from 'react';
+.user{
 
-const UserPage = () => {
-  return (
-    <div>
-      
-    </div>
-  );
-};
+    width: 30vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 
-export default UserPage;
+.user_name, .user_email, .user_balance{
+text-align: center;
+    width: 300px;
+    height: 50px;
+    border:solid #3775dd 2px;
+
+}
+.user_email{
+
+}
+.user_balance{
+
+}

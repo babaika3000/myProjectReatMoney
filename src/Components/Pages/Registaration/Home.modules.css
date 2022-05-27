@@ -1,0 +1,70 @@
+.Home__page{
+    width: 420px;
+    display: flex;
+}
+.input__home{
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    height: 35px;
+
+}
+.Home__text{
+    font-size: 20px;
+    color: antiquewhite;
+}
+.Login__form {
+    display: flex;
+    align-items: normal;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: inherit;
+    min-height: 100vh;
+    background-color: #004d80;
+    padding: 30px 20px 0px 20px;
+
+
+}
+.Home__page-error{
+    position: fixed;
+}
+.input__home{
+    width: 100%;
+
+}
+ .input__home-button{
+
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 21px;
+    margin: 40px 0px 0px 2px;
+    outline: none;
+    border: none;
+     width: 100%;
+     border-radius: 4px;
+    height: 38px;
+    line-height: 32px;
+    font-size: 14px;
+
+    text-decoration: none;
+    color: #fff;
+    background-color: #3775dd;
+    box-shadow: 0 2px #21487f;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    vertical-align: top;
+}
+
+
+.login__info{
+width: 80vw;
+}
+ /*.home__text{*/
+ /*    font-size: 50px;*/
+ /*    font-weight: bold;*/
+ /*    color: deeppink;*/
+ /*    top: auto;*/
+ /*    left: auto;*/
+ /*}*/

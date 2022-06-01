@@ -1,35 +1,49 @@
 import React, {useEffect, useState} from 'react';
 import Menu from "../../menu/Menu";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchTransaction, getListUsers} from "../../features/thunks/transaction";
+import {fetchTransaction, getAllTransactions, getListUsers} from "../../features/thunks/transaction";
 import debounce from "debounce";
+import {setLoading} from "../../app/Rudesers/TransactionReducer";
 
 
 const TransactionUserList = () => {
 
-  const [donate, setDonate] = useState()
+  const [amount, setAmount] = useState()
   const [recipientId, setRecipientId] = useState();
   const [name, setName] = useState()
 
-
   const dispatch = useDispatch();
+  const dispatchGetAllTransactions = () => {
+    dispatch(getAllTransactions())
+  }
 
   const usersList = useSelector((state) => state?.transaction?.usersList);
-
-  const handleDonateChange = (e) => setDonate(e.target.value)
+  const correspondentId = useSelector((state) => state.userData.user.id);
+  const transactionList = useSelector((state) => state.transaction.transactionList);
+  const handleDonateChange = (e) => setAmount(e.target.value)
   const dispatchGetListUsers = async (text) => {
     await dispatch(getListUsers(text))
   }
-
   const onInputChange = (e) => {
     setName(e.target.value);
     setRecipientId(null);
   }
-
+  const dispatchSetLoading = (data) => {
+    dispatch(setLoading(data))
+  }
   useEffect(
     debounce(
       () => dispatchGetListUsers(name), 350),
     [name])
+  useEffect(
+    () => {
+      dispatchGetAllTransactions()
+    }, [])
+  useEffect(
+    () => {
+      dispatchSetLoading(false)
+    }, [transactionList])
+
 
   const userName = (userListName) => {
     setName(userListName);
@@ -40,9 +54,9 @@ const TransactionUserList = () => {
   }
   const dataTransaction = {
     name,
-    donate,
+    amount,
     recipientId,
-    //correspondentId
+    correspondentId
   }
   return (
     <div className={"Transaction_Page"}>
@@ -51,20 +65,20 @@ const TransactionUserList = () => {
             usersList={usersList}
             userName={userName}
             recipientId={setRecipientId}
-        />
+      />
 
-      <input placeholder={"Sum"} type="number" value={donate}
+      <input placeholder={"Sum"}
+             type="number"
+             value={amount}
+             placeholder="Sum"
              onChange={handleDonateChange}/>
       <button
-        onClick={() => requestTransaction(dataTransaction)}
-
-
-      >Try</button>
+        onClick={() => requestTransaction(dataTransaction)}>
+        Try
+      </button>
     </div>
   );
 };
-
-// export default TransactionUserList;
 
 
 export default TransactionUserList

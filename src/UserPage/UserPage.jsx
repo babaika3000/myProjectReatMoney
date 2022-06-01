@@ -15,7 +15,6 @@ const UserPage = () => {
   useEffect(() => {
     dispatch(getUserInfoData());
   }, []);
-
   const loguot = () => {
     dispatch(userAuth(false))
     deleteToken()

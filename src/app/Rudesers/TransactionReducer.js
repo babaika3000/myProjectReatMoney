@@ -17,9 +17,12 @@ export const transactionReducer = createSlice({
     },
     setLoading: (state, action) => {
       state.isLoading = action.payload
-    }
+    },
+    getError: (state, action) => {
+      state.transactionError = action.payload
+  }
   }
 })
-export const {setListUsers, setTransactionData,setLoading} = transactionReducer.actions
+export const {setListUsers, setTransactionData,setLoading,getError} = transactionReducer.actions
 
 export default transactionReducer.reducer

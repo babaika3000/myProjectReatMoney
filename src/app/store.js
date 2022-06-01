@@ -12,8 +12,6 @@ export const store = configureStore({
     usersAuth:authReducer,
     userData:UserDataReducer,
     login:LoginReducer
-
-
   },
 })
 

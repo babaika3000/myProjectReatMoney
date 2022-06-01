@@ -51,6 +51,8 @@ const Registration = () => {
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.username}
+            placeholder={"inter your name"}
+
           />
           {formik.touched.username && formik.errors.username ? (
             <div className={"Error_UserName"}>{formik.errors.username}</div>
@@ -63,6 +65,7 @@ const Registration = () => {
             id="password"
             name="password"
             type="text"
+            placeholder={"Password"}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.password}
@@ -77,6 +80,7 @@ const Registration = () => {
             id="email"
             name="email"
             type="email"
+            placeholder={"email"}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.email}
